@@ -14,6 +14,21 @@ spec:
     singular: pulp
   scope: Namespaced
   versions:
+  - name: v1beta2
+    # Each version can be enabled/disabled by Served flag.
+    served: true
+    # One and only one version must be marked as the storage version.
+    storage: false
+    deprecated: true
+    # A schema is required
+    schema:
+      openAPIV3Schema:
+        type: object
+        properties:
+          host:
+            type: string
+          port:
+            type: string
   - name: v1
     schema:
       openAPIV3Schema:
