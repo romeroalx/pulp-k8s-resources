@@ -7,6 +7,7 @@ fullnameOverride: pulp-operator
 
 # Might want to be moved to under `.operator`, but left for backwards compatibility.
 image: quay.io/pulp/pulp-operator:v1.0.0-beta.4
+imagePullPolicy: IfNotPresent
 namespace: pulp
 
 podSecurityContext:
@@ -36,6 +37,7 @@ operator:
 
 kubeProxy:
   image: gcr.io/kubebuilder/kube-rbac-proxy:v0.13.0
+  imagePullPolicy: IfNotPresent
   securityContext:
     allowPrivilegeEscalation: false
     capabilities:

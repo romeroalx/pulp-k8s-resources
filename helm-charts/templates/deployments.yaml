@@ -33,6 +33,7 @@ spec:
         - --logtostderr=true
         - --v=0
         image: {{ .Values.kubeProxy.image }}
+        imagePullPolicy: {{ .Values.kubeProxy.imagePullPolicy }}
         ports:
         - containerPort: 8443
           name: https
@@ -43,6 +44,7 @@ spec:
           {{- toYaml .Values.kubeProxy.securityContext | nindent 10 }}
       - name: manager
         image: {{ .Values.image }}
+        imagePullPolicy: {{ .Values.imagePullPolicy }}
         args:
         - --health-probe-bind-address=:8081
         - --metrics-bind-address=127.0.0.1:8080
